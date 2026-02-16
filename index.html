@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikita Bedi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfbf7;
+            --text: #1a1a1a;
+            --accent: #c84630;
+            --muted: #6b6b6b;
+            --border: #d4cfc4;
+            --highlight: #f4ede1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 80px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .headshot {
+            display: block;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .links a:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 70px;
+            animation: slideUp 0.8s ease-out;
+            animation-fill-mode: backwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 30px;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* Publications & Projects */
+        .item {
+            margin-bottom: 35px;
+            padding-left: 20px;
+            border-left: 3px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .item:hover {
+            border-left-color: var(--accent);
+            padding-left: 25px;
+        }
+
+        .item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .item .meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .item .venue {
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .item .description {
+            color: var(--text);
+            margin-top: 10px;
+        }
+
+        .item a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .item a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: var(--highlight);
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .skill-category h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .skill-category li {
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .headshot {
+                width: 110px;
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img class="headshot" src="profile.jpeg" alt="Photo of Nikita Bedi">
+            <h1>Nikita Bedi</h1>
+            <p class="tagline">Applied ML researcher with experience publishing research, building datasets, and developing AI systems in healthcare. Expertise in computer vision, NLP, and multimodal ML.</p>
+            <div class="links">
+                <a href="mailto:nbedi@ucla.edu">Email</a>
+                <a href="https://github.com/nikita-bedi" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/nikita-bedi" target="_blank">LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=hBLItS0AAAAJ&hl=en" target="_blank">Google Scholar</a>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>I'm an applied machine learning researcher transitioning from academic healthcare research to industry. My work focuses on building multimodal AI systems for oncology and surgery, with particular emphasis on computer vision, medical imaging, and language models.</p>
+            <p>Currently, I lead translational research projects at Stanford University's Holsinger Lab, where I've developed the first open oropharyngeal endoscopy segmentation dataset and built deep learning models for surgical computer vision. I've also worked as an ML Engineer building RAG systems and production ML pipelines for healthcare startups.</p>
+            <p>I am currently completing my Master's in Data Science from Harvard Extension School and have a BS in Biology from UCLA.</p>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <p>Multimodal representation learning, medical computer vision, vision-language models, and robust clinical AI. I'm particularly interested in reliable, data-centric approaches to modeling clinical data and deploying ML systems for real-world healthcare applications.</p>
+        </section>
+
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            
+            <div class="item">
+                <h3>SCOPE-HN: A Segmentation-based Collection of Oropharyngeal Structures Using Flexible Endoscopy for Head and Neck Cancers</h3>
+                <div class="meta">Bedi, N., Rau, A., Paderno, A., et al. • 2025</div>
+                <div class="venue">Machine Learning for Biomedical Imaging (MELBA)</div>
+                <div class="description">Selected for Oral & Poster Presentation, MICCAI Open Data 2025</div>
+            </div>
+
+            <div class="item">
+                <h3>Computer Vision Foundation Models in Endoscopy: Proof of Concept in Oropharyngeal Cancer</h3>
+                <div class="meta">Paderno, A., Rau, A., Bedi, N., et al. • 2024</div>
+                <div class="venue">The Laryngoscope, 134(11), 4535–4541</div>
+                <div class="description"><a href="https://doi.org/10.1002/lary.31789" target="_blank">DOI: 10.1002/lary.31789</a></div>
+            </div>
+
+            <div class="item">
+                <h3>Computer Vision and Videomics in Otolaryngology–Head and Neck Surgery</h3>
+                <div class="meta">Paderno, A., Bedi, N., Rau, A., Holsinger, F. C. • 2024</div>
+                <div class="venue">Otolaryngologic Clinics of North America</div>
+            </div>
+
+            <div class="item">
+                <h3>Using Deep Learning to Identify the Recurrent Laryngeal Nerve During Thyroidectomy</h3>
+                <div class="meta">Gong, J., Holsinger, F. C., Noel, J. E., Bedi, N., et al. • 2021</div>
+                <div class="venue">Scientific Reports, 11(14306)</div>
+                <div class="description"><a href="https://doi.org/10.1038/s41598-021-93202-y" target="_blank">DOI: 10.1038/s41598-021-93202-y</a></div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Selected Projects</h2>
+            
+            <div class="item">
+                <h3>NavigaTORS: Patient Education Chatbot</h3>
+                <div class="meta">RAG System for Oropharyngeal Cancer</div>
+                <div class="description">Developed a domain-specific RAG chatbot for HPV-associated oropharyngeal cancer patient education. Fine-tuned large language models with cancer-specific terminology and implemented safety guardrails. Pilot deployed with patient navigator materials.</div>
+            </div>
+
+            <div class="item">
+                <h3>Automated Multilabel ECG Classification</h3>
+                <div class="meta">Deep Learning on MIMIC-IV-ECG</div>
+                <div class="description">Built deep learning models (CNN, ResNet1D, Transformer hybrids) for multilabel ECG classification using 800k ECGs from 160k patients. Addressed severe class imbalance with ResNet1D achieving strongest AUC/AUPRC among tested architectures.</div>
+            </div>
+
+            <div class="item">
+                <h3>Tumor Segmentation from Head & Neck MRI</h3>
+                <div class="meta">Semantic Segmentation Pipeline</div>
+                <div class="description">Built semantic segmentation pipelines for gross tumor volumes in T2-weighted MRI. Implemented U-Net, Attention U-Net, U-Net++, and novel Mamba U-Net architectures. Preprocessed 3D volumes into 25k+ 2D slices with patient-level splits.</div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>ML/AI</h3>
+                    <ul>
+                        <li>PyTorch</li>
+                        <li>TensorFlow</li>
+                        <li>Hugging Face</li>
+                        <li>LangChain</li>
+                        <li>MONAI</li>
+                        <li>OpenCV</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>R</li>
+                        <li>SQL</li>
+                        <li>Bash/Linux</li>
+                        <li>C++ (basic)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Infrastructure</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>GCP, AWS</li>
+                        <li>Pulumi</li>
+                        <li>Git/GitHub</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Science</h3>
+                    <ul>
+                        <li>Pandas, NumPy</li>
+                        <li>Scikit-learn</li>
+                        <li>Matplotlib</li>
+                        <li>Statistical Modeling</li>
+                        <li>Causal Inference</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Nikita Bedi.</p>
+        </footer>
+    </div>
+</body>
+</html>
