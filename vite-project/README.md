@@ -36,7 +36,7 @@ npm run build
 ## Deployment to GitHub Pages
 
 ### First Time Setup
-1. Make sure you have a GitHub repository at `https://github.com/nikita-bedi/nikita-bedi.github.io`
+1. Make sure you have a GitHub repository at your desired github.io url
 2. Install dependencies: `npm install`
 
 ### Deploy
@@ -47,7 +47,7 @@ npm run deploy
 This will:
 1. Build the production version
 2. Deploy to the `gh-pages` branch
-3. Your site will be live at `https://nikita-bedi.github.io`
+3. Your site will be live at `https://xx.github.io`
 
 ### Manual Deployment Steps
 If you prefer to deploy manually:

@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import '../App.css'
 
 function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="page-container">
       <nav className="page-nav">

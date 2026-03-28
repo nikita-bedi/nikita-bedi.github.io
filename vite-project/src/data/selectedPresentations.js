@@ -2,7 +2,7 @@ export default [
   {
     title: "Refining the Oropharyngeal Exam using Computer Vision Automated Segmentation of Tumors during Laryngopharyngoscopy",
     authors: "Rau, A., <strong>Bedi, N.</strong>, Paderno, A., et al.",
-    venue: "AHNS 2026"
+    venue: "AHNS 2025"
   },
   {
     title: "NavigaTORS: Leveraging Fine-Tuned Language Models to Enhance Shared Decision-Making and Patient Support in Oropharyngeal Cancer Care",

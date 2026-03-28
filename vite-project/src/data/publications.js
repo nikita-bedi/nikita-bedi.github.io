@@ -3,7 +3,7 @@ export default [
     title: "T1 Microscopic Oropharyngeal Carcinoma: Revealing the Unknown Primary Through Diagnostic TORS",
     authors: "Holsinger, F.C., <strong>Bedi, N.</strong>, Topf, M.C., et al.",
     venue: "Head & Neck, 2026",
-    doi: "https://doi.org/10.1002/hed.27999"
+    doi: "https://doi.org/10.1002/hed.70161"
   },
   {
     title: "SCOPE-HN: A Segmentation-based Collection of Oropharyngeal Structures Using Flexible Endoscopy for Head and Neck Cancers",
